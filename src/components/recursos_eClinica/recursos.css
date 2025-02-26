@@ -1,0 +1,35 @@
+.conteiner_logo_recursos {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5rem;
+    margin-top: 5rem;
+    padding: 20rem;
+    background-color: #DCEAED;
+    color: #003336;
+    padding-bottom: 5rem;
+    padding-top: 3rem;
+    border-radius: 90px 90px 0px 0px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.textos_recursos {
+    font-size: 1.5rem;
+    text-align: start;
+    margin-top: 1rem;
+   
+}
+
+.grupo_evolucao {
+    margin-right: 18.2rem;
+}
+
+.grupo_atendimento {
+    margin-right: 20rem;
+}
+
+
+

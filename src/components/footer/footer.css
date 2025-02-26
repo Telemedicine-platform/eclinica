@@ -1,0 +1,15 @@
+.conteiner_footer_principal {
+    height: 13rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20rem;
+    background-color: #ffffff;
+    padding-top: 8rem;
+    color: #003336;
+}
+
+.texto_desenvolvimento {
+    font-size: 1.2rem;
+    margin-right: 20rem;
+    
+}

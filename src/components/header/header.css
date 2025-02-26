@@ -1,0 +1,92 @@
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 0 4rem;
+    align-items: center;
+    gap: 1rem;
+    background-color: #ffffff;
+    z-index: 1000;
+    position: fixed;
+    margin-top: -2rem;
+    transition: box-shadow 0.3s ease-in-out; 
+}
+
+.header-shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.conteiner_logo {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;   
+}
+
+.logo {
+    width: 15rem;
+    height: auto;
+    margin: 1rem 0 2rem -1rem;
+}
+
+.navbar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navegacao {
+    width: 80%;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+}
+
+.link_navebar {
+    text-decoration: none;;
+    color: #003333;
+    font-weight: 500;
+    transition: color 0.1s ease;
+}
+
+.link_navebar:hover {
+    color: #0CAD9A;
+}
+
+.botao_login {
+    width: 6rem;
+    height: 2.5rem;
+    font-size: 1.1rem;
+    border: 2px solid #003333;
+    border-radius: 0.5rem;
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+    line-height: 2.5rem;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+
+.botao_login:hover {
+    background-color: #003333;
+}
+
+.link_botao {
+    text-decoration: none;
+    color: #003333;
+    font-weight: 600;
+    display: block;
+    height: 100%;  
+    width: 100%;   
+    line-height: 2.5rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.botao_login:hover .link_botao {
+    color: white;
+}

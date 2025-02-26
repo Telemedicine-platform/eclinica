@@ -1,0 +1,46 @@
+.conteiner_banner {
+    width: 100%;
+    height: 57.5rem;
+    display: flex;
+    margin-top: 2rem;
+    padding: 8rem 19.5rem;
+    background-color: #003336;
+}
+
+.titulo_banner {
+    width: 100%;;
+    font-size: 4.5rem;
+    position: relative;
+    bottom: 100px;
+    color: #ffffff;
+    
+}
+
+.conteiner_titulos_banner {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.subtitulo_banner {
+    width: 90%;
+    font-size: 1.8rem;
+    position: relative;
+    bottom: 80px;
+    color: #fff;
+}
+
+.celular_banner {
+    width: 35%;
+    height: 83vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;   
+   
+}
+
+.celular {
+    height: 100%;
+}
