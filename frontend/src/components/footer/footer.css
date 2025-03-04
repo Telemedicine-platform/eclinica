@@ -1,15 +1,26 @@
-.conteiner_footer_principal {
-    height: 13rem;
+.conteiner_footer {
+    width: 100%;
+    height: 150px;
     display: flex;
+    align-items: flex-end;
     justify-content: space-between;
-    padding: 0 20rem;
     background-color: #ffffff;
-    padding-top: 8rem;
     color: #003336;
+    padding: 0 10rem 2rem 10rem;
 }
 
-.texto_desenvolvimento {
-    font-size: 1.2rem;
-    margin-right: 20rem;
-    
+.box_texto_footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.texto_desenvolvimento_footer {
+    font-size: 1rem;
+}
+
+.box_imagem_footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }

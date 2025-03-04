@@ -1,35 +1,67 @@
-.conteiner_logo_recursos {
-    height: 100%;
+.conteiner_recursos {
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 10rem 0 10rem;
+    margin-top: 10rem;
+}
+
+.titulo_recursos {
+    text-align: start;
+    font-size: 2.3rem;
+    color: #003336;
+    width: 100%;
+}
+
+.container_cards_recursos {
+    height: 100%;
+    width: 98.8vw;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 3rem 10rem;
     gap: 5rem;
-    margin-top: 5rem;
-    padding: 20rem;
+    margin-top: 3rem;
     background-color: #DCEAED;
     color: #003336;
-    padding-bottom: 5rem;
-    padding-top: 3rem;
     border-radius: 90px 90px 0px 0px;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.span_header_grupo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.title_header_grupo {
+    font-size: 1.4rem; 
+    font-weight: 600;
+    color: #003336;
+    letter-spacing: 1.5px;
+}
+
+.icon_header_grupo {
+    width: 100%;
+    max-width: 50px;
+}
+
 .textos_recursos {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: start;
     margin-top: 1rem;
    
 }
 
-.grupo_evolucao {
-    margin-right: 18.2rem;
+.card_recursos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
 }
-
-.grupo_atendimento {
-    margin-right: 20rem;
-}
-
-
-

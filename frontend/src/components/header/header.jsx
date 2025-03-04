@@ -1,7 +1,7 @@
-
 import "./header.css";
 import Logo from "../../assets/eClinica.svg";
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [hasShadow, setHasShadow] = useState(false);
@@ -24,37 +24,37 @@ const Header = () => {
 
   return (
     <header className={`header ${hasShadow ? 'header-shadow' : ''}`}>
-      <div className="conteiner_logo">
+      <Link to="/" className="conteiner_logo">
         <img src={Logo} alt="logo" className="logo" />
-      </div>
+      </Link>
 
       <nav className="navbar">
         <ul className="navegacao">
           <li className="li_navebar">
-            <a href="#" className="link_navebar">
+            <Link to="/" className="link_navebar">
               Home
-            </a>
+            </Link>
           </li>
           <li className="li_navebar">
-            <a href="#" className="link_navebar">
-            Cadastro Médico
-            </a>
+            <Link to="/cadastro-medico" className="link_navebar">
+              Cadastro Médico
+            </Link>
           </li>
           <li className="li_navebar">
-            <a href="#" className="link_navebar">
-              Sobre 
-            </a>
+            <Link to="/sobre" className="link_navebar">
+              Sobre
+            </Link>
           </li>
           <li className="li_navebar">
-            <a href="#" className="link_navebar">
+            <Link to="/contato" className="link_navebar">
               Contato
-            </a>
+            </Link>
           </li>
         </ul>
         <button className="botao_login">
-          <a href="#" className="link_botao">
+          <Link to="/login" className="link_botao">
             Login
-          </a>
+          </Link>
         </button>
       </nav>
     </header>

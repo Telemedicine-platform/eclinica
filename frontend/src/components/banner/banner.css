@@ -1,45 +1,42 @@
 .conteiner_banner {
     width: 100%;
-    height: 57.5rem;
+    height: 90vh;
     display: flex;
-    margin-top: 2rem;
-    padding: 8rem 19.5rem;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem 0;
+    padding: 0 10rem;
     background-color: #003336;
 }
 
-.titulo_banner {
-    width: 100%;;
-    font-size: 4.5rem;
-    position: relative;
-    bottom: 100px;
-    color: #ffffff;
-}
-
 .conteiner_titulos_banner {
-    width: 65%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
 
+.titulo_banner {
+    width: 100%;
+    font-size: 3rem;
+    color: #ffffff;
 }
 
 .subtitulo_banner {
-    width: 90%;
-    font-size: 1.8rem;
-    position: relative;
-    bottom: 80px;
+    font-size: 1.2rem;
     color: #fff;
+    margin-top: 2rem;
 }
 
-.celular_banner {
-    width: 35%;
-    height: 83vh;
+.celular_container {
+    width: 40%;
+    height: 100%;
     display: flex;
     justify-content: flex-end;
-    align-items: center;   
+    align-items: end;   
    
 }
 
-.celular {
-    height: 100%;
+.celular_img {
+    height: 90%;
 }

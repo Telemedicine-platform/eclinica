@@ -5,28 +5,23 @@ function Boas_vindas() {
   return (
     <div className="conteiner_boas_vindas">
       <h1 className="titulo_boas_vindas">
-        Bem-vindo ao seu consultório <br /> Virtual
+        Bem-vindo ao seu consultório virtual
       </h1>
       <div className="conteiner_paragrafo_boas_vindas">
         <p className="paragrafo_boas_vindas">
-          A Plataforma de Saúde Digital{" "}
-          <strong className="strong_collor">eClínica</strong> é uma solução
-          completa para a gestão da saúde à distância, oferecendo muito mais do
-          que apenas consultas online. Nossa plataforma integra funcionalidades
-          avançadas como <strong className="strong_collor">Telemedicina</strong>
-          , <strong className="strong_collor">Agendamento Online</strong>,{" "}
-          <strong className="strong_collor">Pagamento Digital</strong>, e muito
-          mais. Tudo isso com a{" "}
-          <strong className="strong_collor">praticidade</strong> e{" "}
-          <strong className="strong_collor">segurança</strong> necessárias para
-          conectar médicos, pacientes e instituições de saúde de forma{" "}
-          <strong className="strong_collor">eficiente</strong> e{" "}
-          <strong className="strong_collor">integrada</strong>.
+          A Plataforma de Saúde Digital
+          <span className="strong_color"> eClínica</span> é uma solução completa
+          para a gestão da saúde à distância, oferecendo muito mais do que
+          apenas consultas online. Nossa plataforma integra funcionalidades
+          avançadas, como <span className="strong_color">Telemedicina</span>,
+          <span className="strong_color"> Agendamento Online</span>,
+          <span className="strong_color"> Pagamento Digital</span> e muito mais.
+          Tudo isso com a<span className="strong_color"> praticidade</span> e
+          <span className="strong_color"> segurança</span> necessárias para
+          conectar médicos, pacientes e instituições de saúde de forma
+          <span className="strong_color"> eficiente</span> e
+          <span className="strong_color"> integrada</span>.
         </p>
-      </div>
-
-      <div className="footer_boas_vindas">
-        <h1>Conheça os recursos da Plataforma de Saúde Digital</h1>
       </div>
     </div>
   );

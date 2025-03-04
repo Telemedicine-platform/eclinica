@@ -1,43 +1,35 @@
 .conteiner_boas_vindas {
     width: 100%;
+    height: 100%;
     display: flex;
-    padding: 0 20rem;
+    padding: 0 10rem;
     flex-direction: column;
-    
+    margin-top: 5rem;
 }
 
 .titulo_boas_vindas {
     text-align: start;
-    font-size: 2.8rem;
+    font-size: 2.3rem;
     margin-top: 2rem;
     color: #003336;
 }
 
+.conteiner_paragrafo_boas_vindas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .paragrafo_boas_vindas {
-    
     text-align: start;
     color: #003336;
     width: 100%;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     margin-top: 2.5rem;
-    padding-right: 15rem;
-    position: relative;
-    top: 6rem;
-    
-
 }
 
-.strong_collor {
+.strong_color {
     color: #0CAD9A;
+    font-weight: 500;
 }
-
-.footer_boas_vindas {
-    color: #003336;
-    margin-top: 18rem;
-    font-size: 1.3rem; 
-}
-
-
-
-
-

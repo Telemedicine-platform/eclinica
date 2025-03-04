@@ -1,23 +1,17 @@
-import { useState } from 'react'
-import Header from './components/header/header'
-import Banner from './components/banner/banner'
-import Boas_vindas from './components/boas_vindas/boas_vindas'
-import Recursos from './components/recursos_eClinica/recursos'
-import Footer from './components/footer/footer'
-
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import NotFound from "./pages/_NotFound";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <Header />
-      <Banner />
-      <Boas_vindas />
-      <Recursos />
-      <Footer />
+      <Router>
+        <Routes>
+          <Route exact path="/" Component={Home} />
+          <Route path="*" Component={NotFound} />
+        </Routes>
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
