@@ -78,12 +78,15 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 40px;
+    width: 100%;
     height: 100%;
 }
 
 .password_container {
     width: 100%;
+    max-width: 500px;
+    height: auto;
+    flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,15 +95,16 @@
 
 .button_show_password {
     position: absolute;
-    right: 4rem;
+    right: 0rem;
+    top: 0.5rem;
     cursor: pointer;
     width: auto; 
     display: flex;
     align-items: center;
     justify-content: center;
     border: none;
-    padding: 0.8rem 0.2rem;
     background-color: transparent;
+    padding: 0.8rem 0rem;
 }
 
 .icon_preview {
