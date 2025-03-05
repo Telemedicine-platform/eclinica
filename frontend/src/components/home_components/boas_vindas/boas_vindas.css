@@ -8,7 +8,8 @@
 }
 
 .titulo_boas_vindas {
-    text-align: start;
+    width: 100%;
+    text-align: left;
     font-size: 2.3rem;
     margin-top: 2rem;
     color: #003336;

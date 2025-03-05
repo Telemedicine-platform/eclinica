@@ -1,26 +1,62 @@
 .conteiner_footer {
+    position: relative;
     width: 100%;
-    height: 150px;
+    height: 300px;
     display: flex;
+    flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
-    background-color: #ffffff;
-    color: #003336;
-    padding: 0 10rem 2rem 10rem;
+    background-color: #003336;
+    padding: 0 10rem 0rem 10rem;
 }
 
-.box_texto_footer {
+.box_footer {
+    width: 100%;
+    height: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
 }
 
-.texto_desenvolvimento_footer {
-    font-size: 1rem;
+.navegation, .contact_info, .policies, .languages, .newsletter {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.title_footer {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 30px 0 10px 0;
+}
+
+.list_footer {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 0.6rem;
+}
+
+.li_footer {
+    list-style: none;
+}
+
+.link_footer {
+    text-decoration: none;
+    color: #fff;
 }
 
 .box_imagem_footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    background-color: #fff;
 }
