@@ -1,0 +1,264 @@
+.container_login_cadastro{
+    width: 98.8vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10rem;
+    margin: 5rem 0;
+}
+
+.container{
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    height: 90%;
+    max-height: 700px;
+    z-index: 1;
+}
+
+.title_login_cadastro {
+    font-weight: bold;
+    color: #003336;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.button_login_cadastro{
+    background-color: #003336;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.7rem 2.5rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button_login_cadastro:hover{
+    background-color: #035559;
+}
+
+.button_toggle_login_cadastro {
+    background-color: #003336;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.7rem 2.5rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button_toggle_login_cadastro.hidden{
+    background-color: transparent;
+    border-color: #fff;
+}
+
+.button_toggle_login_cadastro:hover{
+    background-color: #023032;
+    border: 1px solid #ffffff53;
+}
+
+.form_login_cadastro{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+
+.password_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.button_show_password {
+    position: absolute;
+    right: 4rem;
+    cursor: pointer;
+    width: auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 0.8rem 0.2rem;
+    background-color: transparent;
+}
+
+.icon_preview {
+    cursor: pointer;
+    width: 50%;
+}
+
+.input_login{
+    background-color: #eee;
+    border: none;
+    margin: 0.5rem 1rem 0.5rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border: 1px solid #dfdfdf;
+    width: 100%;
+    max-width: 500px;
+    outline: none;
+}
+
+.input_login::placeholder{
+    color: #003336;
+}
+
+.input_login:focus{
+    border: 1px solid #003336;
+}
+
+.form-container{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.link_login_cadastro {
+    color: #003336;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 0.6rem;
+    cursor: pointer;
+}
+
+.link_login_cadastro:hover{
+    text-decoration: underline;
+}
+
+.sign-in{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.container.active .sign-in{
+    transform: translateX(100%);
+}
+
+.sign-up{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.container.active .sign-up{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+
+@keyframes move{
+    0%, 49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100%{
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.toggle-container{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+}
+
+.container.active .toggle-container{
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
+
+.toggle{
+    background-color: var(--color_primary);
+    height: 100%;
+    background: linear-gradient(to right, #02494d, #003336);
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle{
+    transform: translateX(50%);
+}
+
+.toggle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.toggle-left{
+    transform: translateX(-200%);
+}
+
+.container.active .toggle-left{
+    transform: translateX(0);
+}
+
+.toggle-right{
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.active .toggle-right{
+    transform: translateX(200%);
+}
+
+.title_toggle_login_cadastro {
+    font-weight: bold;
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.text_toggle_login_cadastro {
+    font-size: 1rem;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+}

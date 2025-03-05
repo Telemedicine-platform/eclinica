@@ -1,6 +1,6 @@
 import React from "react";
 import "./banner.css";
-import Celular from "../../assets/celular2.svg";
+import Celular from "../../../assets/celular2.svg";
 
 function Banner() {
   return (

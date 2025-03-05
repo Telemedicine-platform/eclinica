@@ -1,3 +1,7 @@
 :root {
     --color_primary: #003336;
+    --color_linear1: #003336;
+    --color_linear2: #02494d;
+    --color_neutral: #f5f5f5;
+    --color_background_input: #eee;
 }

@@ -1,11 +1,11 @@
 import React from "react";
 import "./recursos.css";
-import AgendamentoIcon from "../../assets/agendamentoIcon.svg";
-import FrequenciaIcon from "../../assets/frequenciaIcon.svg";
-import CifraoIcon from "../../assets/cifraoIcon.svg";
-import ListaIcon from "../../assets/listaIcon.svg";
-import DocIcon from "../../assets/docIcon.svg";
-import UploadIcon from "../../assets/uploadIcon.svg";
+import AgendamentoIcon from "../../../assets/agendamentoIcon.svg";
+import FrequenciaIcon from "../../../assets/frequenciaIcon.svg";
+import CifraoIcon from "../../../assets/cifraoIcon.svg";
+import ListaIcon from "../../../assets/listaIcon.svg";
+import DocIcon from "../../../assets/docIcon.svg";
+import UploadIcon from "../../../assets/uploadIcon.svg";
 
 function Recursos() {
   return (
