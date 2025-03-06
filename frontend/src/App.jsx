@@ -9,7 +9,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" Component={Home} />
-          <Route exact path="/Sobre" Component={Sobre} />
+          <Route path="/Sobre" Component={Sobre} />
           <Route path="/login" Component={LoginECadastroPage} />
           <Route path="*" Component={NotFound} />
         </Routes>
