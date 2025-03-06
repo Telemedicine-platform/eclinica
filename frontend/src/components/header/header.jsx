@@ -41,7 +41,7 @@ const Header = () => {
             </Link>
           </li>
           <li className="li_navebar">
-            <Link to="/sobre" className="link_navebar">
+            <Link to="/Sobre" className="link_navebar">
               Sobre
             </Link>
           </li>
