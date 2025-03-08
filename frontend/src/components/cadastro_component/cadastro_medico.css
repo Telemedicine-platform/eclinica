@@ -1,0 +1,220 @@
+.container_cadastro_medico {
+    width: 98.8vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10rem;    
+    margin: 1rem 0;
+}
+
+.box_cadastro_medico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    height: 90%;
+    max-height: 700px;
+}
+
+.form_container_cadastro_medico {
+    width: 50%;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.form_cadastro_medico {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.title_cadastro_medico {
+    font-weight: bold;
+    color: #003336;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.input_cadastro_medico{
+    background-color: #eee;
+    border: none;
+    margin: 0.5rem 1rem 0.5rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border: 1px solid #dfdfdf;
+    width: 100%;
+    max-width: 500px;
+    outline: none;
+}
+
+.input_cadastro_medico::placeholder{
+    color: #003336;
+}
+
+.input_cadastro_medico:focus{
+    border: 1px solid #003336;
+}
+
+.crm_state_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #eee;
+    border: none;
+    margin: 0.5rem 1rem 0.5rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border: 1px solid #dfdfdf;
+    width: 100%;
+    max-width: 500px;
+    outline: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.crm_state_container.open{
+    border: 1px solid #003336;
+}
+
+  .label_crm {
+    font-size: 0.9rem;
+    color: #003336;
+    position: absolute;
+  }
+  
+  .dropdown_crm {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .dropdown_button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-size: 0.9rem;
+    background: transparent;
+    color: #003336;
+  }
+  
+  .dropdown_button::after {
+    content: "▼";
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .dropdown_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 2rem;
+    width: 100%;
+    background: white;
+    border: 1px solid #cdcdcd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+  }
+  
+  .options_crm {
+    padding: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .options_crm:hover {
+    background: #003336;
+    color: white;
+  }
+  
+
+.password_container_cadastro {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.toggle_container_cadastro {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+}
+
+.toggle_cadastro {
+    background-color: var(--color_primary);
+    height: 100%;
+    background: linear-gradient(to right, #02494d, #003336);
+    color: #fff;
+    height: 100%;
+    width: 200%;
+}
+
+.toggle_panel_cadastro {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    transition: all 0.6s ease-in-out;
+}
+
+.title_toggle_cadastro {
+    font-weight: bold;
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.box_text_toggle_cadastro {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 80%;
+    gap: 1rem;
+}
+
+.text_toggle_cadastro {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.list_toggle_cadastro {
+    padding: 0 2rem;
+}
+
+.li_toggle_cadastro {
+    font-size: 1rem;
+    color: #fff;
+    margin: 0.5rem 0;
+}

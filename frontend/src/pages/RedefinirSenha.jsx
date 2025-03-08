@@ -10,9 +10,6 @@ function Redefinir_senha () {
                 <Header />
                 <Redefinir />   
                 <Footer /> 
-                
-                
-                
             </>
         </div>
     );
