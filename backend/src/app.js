@@ -1,32 +1,19 @@
-//impotando modulo express
-const express = require("express");
-require('dotenv').config();
+// Importa o módulo express, que é um framework para construir aplicações web em Node.js
+const express = require('express');
 
-//Importando modulo mysql2
-const mysql = require("mysql2");
+// Importa o módulo dotenv, que carrega variáveis de ambiente de um arquivo .env para process.env
+const dotenv = require('dotenv');
 
-//Configuração de conexão usando Dotenv
-const conexao = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT,
-});
+// Carrega as variáveis de ambiente do arquivo .env
+dotenv.config();
 
-//teste de conexão
-conexao.connect(function (erro) {
-  if (erro) throw erro;
-  console.log("Conexão efetuada com sucesso");
-});
-//app
+// Cria uma instância do aplicativo express
 const app = express();
 
-//Rota teste
-app.get("/", function (req, res) {
-  res.write("Utilizando nodemon");
-  res.end();
-});
+// Define a porta em que o servidor irá escutar, usando a variável de ambiente PORT ou 3001 como padrão
+const PORT = process.env.PORT;
 
-//Servidor
-app.listen(8080);
+// Inicia o servidor e faz com que ele escute na porta definida
+app.listen(PORT, () => {
+  console.log(`Servidor rodando`);
+});
