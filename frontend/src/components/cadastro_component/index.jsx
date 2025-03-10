@@ -148,7 +148,7 @@ export default function Cadastro_medico_component() {
           <div className="toggle_cadastro">
             <div className="toggle_panel_cadastro">
               <h1 className="title_toggle_cadastro">
-                Bem-vindo ao Cadastro de Médico!
+                Bem-vindo ao Cadastro Médico!
               </h1>
               <div className="box_text_toggle_cadastro">
                 <p className="text_toggle_cadastro">

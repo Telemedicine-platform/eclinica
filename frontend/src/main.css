@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     max-width: 1920px;
+    user-select: none;
 }
 
 html {
