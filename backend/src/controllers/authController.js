@@ -1,25 +1,33 @@
-// Importa os módulos necessários
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const { secret } = require('../config/jwt');
-const connection = require('../config/db');
+const bcrypt = require('bcrypt'); // Importa o módulo bcrypt para criptografar senhas
+const jwt = require('jsonwebtoken'); // Importa o módulo jsonwebtoken para trabalhar com tokens JWT
+const { JWT_SECRET } = require('../config/jwt'); // Importa a chave secreta JWT do arquivo de configuração
+const connection = require('../config/db'); // Importa a conexão com o banco de dados
 
-// Define o controlador de autenticação
 const authController = {
   // Função para registrar um novo usuário
   registerUser: (req, res) => {
-    const { email, password } = req.body; // Obtém o email e a senha do corpo da requisição
-    bcrypt.hash(password, 10, (err, hash) => { // Criptografa a senha com um salt de 10 rounds
+    const { nome, email, password } = req.body; // Obtém o nome, email e senha do corpo da requisição
+
+    // Verifica se todos os campos necessários estão presentes
+    if (!nome || !email || !password) {
+      return res.status(400).json({ message: 'Todos os campos são obrigatórios' });
+    }
+
+    // Criptografa a senha
+    bcrypt.hash(password, 10, (err, hash) => {
       if (err) {
-        return res.status(500).json({ message: 'Erro ao criptografar a senha' }); // Retorna um erro se a criptografia falhar
+        console.error('Erro ao criptografar a senha:', err);
+        return res.status(500).json({ message: 'Erro ao criptografar a senha' });
       }
 
-      const query = 'INSERT INTO users (email, password) VALUES (?, ?)'; // Query SQL para inserir um novo usuário
-      connection.query(query, [email, hash], (err, results) => { // Executa a query com o email e a senha criptografada
+      // Insere o usuário no banco de dados
+      const query = 'INSERT INTO usuario (nome_completo, email, senha, data_cadastro) VALUES (?, ?, ?, NOW())';
+      connection.query(query, [nome, email, hash], (err, results) => {
         if (err) {
-          return res.status(500).json({ message: 'Erro ao criar o usuário' }); // Retorna um erro se a inserção falhar
+          console.error('Erro ao criar o usuário:', err);
+          return res.status(500).json({ message: 'Erro ao criar o usuário' });
         }
-        res.status(201).json({ message: 'Usuário criado com sucesso!' }); // Retorna uma mensagem de sucesso se o usuário for criado
+        res.status(201).json({ message: 'Usuário criado com sucesso!' });
       });
     });
   },
@@ -27,24 +35,29 @@ const authController = {
   // Função para fazer login de um usuário
   loginUser: (req, res) => {
     const { email, password } = req.body; // Obtém o email e a senha do corpo da requisição
-    const query = 'SELECT * FROM users WHERE email = ?'; // Query SQL para buscar o usuário pelo email
-    connection.query(query, [email], (err, results) => { // Executa a query com o email
+
+    // Verifica se todos os campos necessários estão presentes
+    if (!email || !password) {
+      return res.status(400).json({ message: 'Todos os campos são obrigatórios' });
+    }
+
+    const query = 'SELECT * FROM usuario WHERE email = ?'; // Query SQL para buscar o usuário pelo email
+    connection.query(query, [email], (err, results) => {
       if (err || results.length === 0) {
-        return res.status(401).json({ message: 'Usuário não encontrado' }); // Retorna um erro se o usuário não for encontrado
+        return res.status(401).json({ message: 'Usuário não encontrado' });
       }
 
       const user = results[0]; // Obtém o primeiro resultado da query (usuário encontrado)
-      bcrypt.compare(password, user.password, (err, isMatch) => { // Compara a senha fornecida com a senha armazenada
+      bcrypt.compare(password, user.senha, (err, isMatch) => { // Compara a senha fornecida com a senha armazenada
         if (!isMatch) {
-          return res.status(401).json({ message: 'Senha incorreta' }); // Retorna um erro se as senhas não coincidirem
+          return res.status(401).json({ message: 'Senha incorreta' });
         }
 
-        const token = jwt.sign({ userId: user.id }, secret, { expiresIn: '1h' }); // Gera um token JWT com o ID do usuário e uma expiração de 1 hora
+        const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '1h' }); // Gera um token JWT com o ID do usuário e uma expiração de 1 hora
         res.json({ token }); // Retorna o token JWT
       });
     });
   }
 };
 
-// Exporta o controlador de autenticação para que possa ser utilizado em outros módulos
-module.exports = authController;
+module.exports = authController; // Exporta o controlador de autenticação para que possa ser utilizado em outros módulos

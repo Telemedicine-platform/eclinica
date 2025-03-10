@@ -1,29 +1,31 @@
+// Importa o módulo jsonwebtoken para trabalhar com tokens JWT
 const jwt = require("jsonwebtoken");
-require("dotenv").config(); // Carrega as variáveis de ambiente do .env
 
-const JWT_SECRET = process.env.JWT_SECRET || "chave-secreta-padrao"; // Usa um valor padrão caso não tenha um .env
-const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "1h"; // Tempo de expiração do token (1 hora por padrão)
+// Carrega as variáveis de ambiente do arquivo .env
+require("dotenv").config();
 
-/**
- * Gera um token JWT para autenticação do usuário
- * @param {Object} payload - Dados que serão incluídos no token (ex: { id: 1, role: 'user' })
- * @returns {String} Token JWT assinado
- */
+// Define a chave secreta para assinar os tokens JWT, carregada das variáveis de ambiente
+const JWT_SECRET = process.env.JWT_SECRET;
+
+// Define o tempo de expiração dos tokens JWT, carregado das variáveis de ambiente ou definido como "1h" por padrão
+const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "1h";
+
+// Função para gerar um token JWT
 const generateToken = (payload) => {
+  // Assina o token com o payload fornecido, usando a chave secreta e o tempo de expiração
   return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
 };
 
-/**
- * Verifica se um token JWT é válido
- * @param {String} token - Token JWT recebido no request
- * @returns {Object|Boolean} Retorna os dados do token se válido, ou false se inválido
- */
+// Função para verificar um token JWT
 const verifyToken = (token) => {
   try {
+    // Verifica o token usando a chave secreta
     return jwt.verify(token, JWT_SECRET);
   } catch (error) {
+    // Retorna false se a verificação falhar
     return false;
   }
 };
 
-module.exports = { generateToken, verifyToken };
+// Exporta as funções generateToken e verifyToken, e a constante JWT_SECRET para uso em outros módulos
+module.exports = { generateToken, verifyToken, JWT_SECRET };

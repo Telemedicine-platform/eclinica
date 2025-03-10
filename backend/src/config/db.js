@@ -1,6 +1,12 @@
 // Carrega as variáveis de ambiente do arquivo .env
 require('dotenv').config();
 
+// Verifica se todas as variáveis de ambiente necessárias estão definidas
+if (!process.env.DB_HOST || !process.env.DB_USER || !process.env.DB_PASSWORD || !process.env.DB_NAME || !process.env.DB_PORT) {
+  console.error('Erro: Variáveis de ambiente do banco de dados não definidas corretamente.');
+  process.exit(1);
+}
+
 // Importa o módulo mysql2, que permite a conexão com um banco de dados MySQL
 const mysql = require("mysql2");
 

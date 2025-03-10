@@ -1,19 +1,21 @@
-// Importa o módulo express, que é um framework para construir aplicações web em Node.js
-const express = require('express');
+const express = require('express'); // Importa o módulo express
+const dotenv = require('dotenv'); // Importa o módulo dotenv para carregar variáveis de ambiente
+const cors = require('cors'); // Importa o módulo cors para permitir requisições de diferentes origens
+const authRoutes = require('./routes/authRoutes'); // Importa as rotas de autenticação
 
-// Importa o módulo dotenv, que carrega variáveis de ambiente de um arquivo .env para process.env
-const dotenv = require('dotenv');
+dotenv.config(); // Carrega as variáveis de ambiente do arquivo .env
 
-// Carrega as variáveis de ambiente do arquivo .env
-dotenv.config();
+const app = express(); // Cria uma nova aplicação Express
 
-// Cria uma instância do aplicativo express
-const app = express();
+app.use(cors()); // Adiciona o middleware CORS para permitir requisições de diferentes origens
+app.use(express.json()); // Adiciona o middleware para parsear JSON no corpo das requisições
 
-// Define a porta em que o servidor irá escutar, usando a variável de ambiente PORT ou 3001 como padrão
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3001; // Define a porta na qual o servidor irá rodar, usando a variável de ambiente PORT ou 3001 por padrão
 
-// Inicia o servidor e faz com que ele escute na porta definida
+// Define as rotas de autenticação
+// Todas as requisições para /api/auth serão tratadas pelas rotas definidas em authRoutes
+app.use('/api/auth', authRoutes);
+
 app.listen(PORT, () => {
-  console.log(`Servidor rodando`);
+  console.log(`Servidor rodando na porta ${PORT}`); // Inicia o servidor e exibe uma mensagem no console indicando a porta na qual o servidor está rodando
 });

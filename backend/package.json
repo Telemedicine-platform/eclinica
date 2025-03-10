@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "backend": "file:",
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
@@ -8,8 +9,8 @@
     "express-validator": "^7.2.1",
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
-    "node": "^23.9.0",
     "mysql2": "^3.13.0",
+    "node": "^23.9.0",
     "nodemon": "^3.1.9"
   },
   "name": "backend",
