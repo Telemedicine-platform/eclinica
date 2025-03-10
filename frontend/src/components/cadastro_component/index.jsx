@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PreviewIcon from "../../assets/preview.svg";
 import NoPreviewIcon from "../../assets/noPreview.svg";
 import "./cadastro_medico.css";
+import { Link } from "react-router-dom";
 
 const states = [
   { value: "AC", label: "Acre (AC)" },
@@ -66,15 +67,16 @@ export default function Cadastro_medico_component() {
             />
             <input
               type="text"
-              placeholder="CRM"
+              placeholder="Número do CRM"
               className="input_cadastro_medico"
+              maxLength={20}
             />
             <div
               className={`crm_state_container ${isOpen ? "open" : ""}`}
               onClick={() => setIsOpen(!isOpen)}
             >
               <label htmlFor="crmState" className="label_crm">
-                Estado do CRM
+                Estado de emissão do CRM
               </label>
               <div className="dropdown_crm">
                 <div className="dropdown_button">{selectedState}</div>
@@ -135,9 +137,9 @@ export default function Cadastro_medico_component() {
                 />
               </button>
             </div>
-            <a href="/login" className="link_login_cadastro">
+            <Link to="/login" className="link_login_cadastro">
               Já tem conta?
-            </a>
+            </Link>
 
             <button type="button" className="button_login_cadastro">
               Criar conta
