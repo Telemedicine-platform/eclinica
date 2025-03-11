@@ -8,11 +8,6 @@ const authController = {
   registerUser: (req, res) => {
     const { nome, email, password } = req.body; // Obtém o nome, email e senha do corpo da requisição
 
-    // Verifica se todos os campos necessários estão presentes
-    if (!nome || !email || !password) {
-      return res.status(400).json({ message: 'Todos os campos são obrigatórios' });
-    }
-
     // Criptografa a senha
     bcrypt.hash(password, 10, (err, hash) => {
       if (err) {
@@ -35,11 +30,6 @@ const authController = {
   // Função para fazer login de um usuário
   loginUser: (req, res) => {
     const { email, password } = req.body; // Obtém o email e a senha do corpo da requisição
-
-    // Verifica se todos os campos necessários estão presentes
-    if (!email || !password) {
-      return res.status(400).json({ message: 'Todos os campos são obrigatórios' });
-    }
 
     const query = 'SELECT * FROM usuario WHERE email = ?'; // Query SQL para buscar o usuário pelo email
     connection.query(query, [email], (err, results) => {

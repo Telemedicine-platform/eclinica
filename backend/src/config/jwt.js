@@ -10,6 +10,12 @@ const JWT_SECRET = process.env.JWT_SECRET;
 // Define o tempo de expiração dos tokens JWT, carregado das variáveis de ambiente ou definido como "1h" por padrão
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "1h";
 
+// Verifica se a variável de ambiente JWT_SECRET está definida
+if (!JWT_SECRET) {
+  console.error('Erro: Variável de ambiente JWT_SECRET não definida.');
+  process.exit(1);
+}
+
 // Função para gerar um token JWT
 const generateToken = (payload) => {
   // Assina o token com o payload fornecido, usando a chave secreta e o tempo de expiração
