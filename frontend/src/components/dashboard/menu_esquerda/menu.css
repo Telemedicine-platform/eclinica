@@ -1,0 +1,9 @@
+.menu_conteiner {
+    display: flex;
+    background-color: var(--color_primary);
+    height: 100vh;
+    background: linear-gradient(to right, #02494d, #003336);
+    color: #fff;
+    height: 100vh;
+    width: 20%; /* Alterado de 200px para 300px */
+}

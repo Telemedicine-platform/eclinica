@@ -46,9 +46,9 @@ const Header = () => {
             </Link>
           </li>
           <li className="li_navebar">
-            <Link to="/contato" className="link_navebar">
+            <a href="#contato" className="link_navebar">
               Contato
-            </Link>
+            </a>
           </li>
         </ul>
         <button className="botao_login">

@@ -25,15 +25,11 @@ function Footer() {
                 Sobre
               </Link>
             </li>
-            <li className="li_footer">
-              <Link to="/contato" className="link_footer">
-                Contato
-              </Link>
-            </li>
+            
           </ul>
         </div>
         <div className="contact_info">
-          <h3 className="title_footer">Informações de Contato</h3>
+          <h3 className="title_footer" id="contato">Informações de Contato</h3>
           <ul className="list_footer">
             <li className="li_footer">
               <a href="tel:+5511999999999" className="link_footer">

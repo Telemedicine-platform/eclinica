@@ -1,0 +1,18 @@
+.conteiner_consultas {
+    display: flex;
+    margin-top: 8rem;
+}
+
+.conteiner_perfil {
+    position: absolute;
+    right: 5%;
+}
+
+.conteiner_informacoes {
+
+    background-color: rgb(13, 107, 91);
+    width: 85rem;
+    height: 94.2%;
+    margin: 3rem;
+    border-radius: 4rem 4rem 0 0;
+}

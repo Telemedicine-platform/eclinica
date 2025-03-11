@@ -7,6 +7,7 @@ import Redefinir_senha from "./pages/RedefinirSenha";
 import Cadastro_Medico from "./pages/Cadastro_Medico";
 import Dashboard from "./pages/Dashboard";
 import Contato from "./pages/Contato";
+import Teste from "./pages/teste";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
           <Route path="/recuperarSenha" Component={Redefinir_senha} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" Component={NotFound} />
+          <Route path="/teste" Component={Teste} />
+          
         </Routes>
       </Router>
     </>
