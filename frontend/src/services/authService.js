@@ -1,6 +1,7 @@
 import axios from "axios"; // Importa o módulo axios para fazer requisições HTTP
 
-const API_URL = "http://localhost:3001/api/auth"; // Define a URL base da API de autenticação
+// Define a URL base da API de autenticação
+const API_URL = import.meta.env.REACT_APP_API_URL; 
 
 // Função para registrar um novo usuário
 export const register = async (name, email, password) => {
