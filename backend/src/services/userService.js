@@ -2,7 +2,7 @@ const connection = require('../config/db'); // Importa a conexão com o banco de
 
 // Função para obter o perfil do usuário
 const getUserProfile = (userId, callback) => {
-  const query = 'SELECT nome_completo, email, data_cadastro FROM usuario WHERE id = ?'; // Query SQL para buscar o perfil do usuário
+  const query = 'SELECT nome_completo, email, created_at FROM pacientes WHERE id = ?'; // Query SQL para buscar o perfil do usuário
   connection.query(query, [userId], (err, results) => {
     if (err) {
       return callback(err, null); // Retorna o erro se houver

@@ -1,11 +1,11 @@
-const userService = require('../services/userService'); // Importa o serviço de usuário
+const User = require('../models/User'); // Importa o modelo de usuário
 
 const userController = {
   // Função para obter o perfil do usuário
   getUserProfile: (req, res) => {
     const userId = req.user.userId; // Obtém o ID do usuário da requisição
 
-    userService.getUserProfile(userId, (err, userProfile) => {
+    User.findUserById(userId, (err, userProfile) => {
       if (err) {
         console.error('Erro ao buscar perfil do usuário:', err);
         return res.status(500).json({ message: 'Erro ao buscar perfil do usuário' }); // Retorna erro se houver
