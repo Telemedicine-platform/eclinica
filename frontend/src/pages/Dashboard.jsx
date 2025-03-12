@@ -7,19 +7,18 @@ import Consultas from "../components/dashboard/consultas/consultas";
 const Dashboard = () => {
   const navigate = useNavigate();
 
+  // Hook de efeito para verificar a autenticação do usuário
   useEffect(() => {
     if (!isAuthenticated()) {
-      navigate("/login");
+      navigate("/login"); // Redireciona para a página de login se não estiver autenticado
     }
   }, []);
 
   return (
-
     <div>
-      <Menu_consulta />
-      <Consultas />
+      <Menu_consulta /> {/* Componente do menu de consultas */}
+      <Consultas /> {/* Componente de consultas */}
     </div>
-
   );
 };
 

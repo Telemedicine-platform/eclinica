@@ -12,10 +12,10 @@ export default function LoginECadastro() {
 
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [senha, setSenha] = useState("");
+  const [confirmSenha, setConfirmSenha] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  const [loginSenha, setLoginSenha] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -24,15 +24,19 @@ export default function LoginECadastro() {
     setErrorMessage("");
     setNome("");
     setEmail("");
-    setPassword("");
-    setConfirmPassword("");
+    setSenha("");
+    setConfirmSenha("");
     setLoginEmail("");
-    setLoginPassword("");
+    setLoginSenha("");
   };
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
+    if (senha.length < 6) {
+      setErrorMessage("Senha deve ter no mínimo 6 caracteres");
+      return;
+    }
+    if (senha !== confirmSenha) {
       setErrorMessage("As senhas não coincidem");
       return;
     }
@@ -41,7 +45,7 @@ export default function LoginECadastro() {
       await axios.post("http://localhost:3001/api/auth/register", {
         nome: nome,
         email: email,
-        password: password,
+        senha: senha,
       });
       alert("Conta criada com sucesso");
       toggleForm(false);
@@ -60,7 +64,7 @@ export default function LoginECadastro() {
         "http://localhost:3001/api/auth/login",
         {
           email: loginEmail,
-          password: loginPassword,
+          senha: loginSenha,
         }
       );
       localStorage.setItem("token", response.data.token);
@@ -98,8 +102,8 @@ export default function LoginECadastro() {
                 type={showPasswordCadastro ? "text" : "password"}
                 placeholder="Senha"
                 className="input_login"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
               />
               <button
                 type="button"
@@ -118,8 +122,8 @@ export default function LoginECadastro() {
                 type={showPasswordCadastro ? "text" : "password"}
                 placeholder="Confirme sua senha"
                 className="input_login"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                value={confirmSenha}
+                onChange={(e) => setConfirmSenha(e.target.value)}
               />
               <button
                 type="button"
@@ -164,8 +168,8 @@ export default function LoginECadastro() {
                 type={showPasswordLogin ? "text" : "password"}
                 placeholder="Senha"
                 className="input_login"
-                value={loginPassword}
-                onChange={(e) => setLoginPassword(e.target.value)}
+                value={loginSenha}
+                onChange={(e) => setLoginSenha(e.target.value)}
               />
               <button
                 type="button"

@@ -4,18 +4,19 @@ import react from '@vitejs/plugin-react';
 
 // dotenv.config();
 
+// Função principal de configuração do Vite
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react()], // Adiciona o plugin do React
   server: {
-    open: true,
-    port: 3000,
-    // proxy: {
-    //   '/api': {
-    //     target: process.env.VITE_API_URL,
-    //     changeOrigin: true,
-    //     secure: false,
-    //     rewrite: (path) => path.replace(/^\/api/, '')
-    //   }
-    // }
+    open: true, // Abre o navegador automaticamente
+    port: 3000, // Define a porta do servidor
+    proxy: {
+      '/api': {
+        target: process.env.VITE_API_URL,
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
   }
 });

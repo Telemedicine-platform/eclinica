@@ -4,10 +4,10 @@ import axios from "axios"; // Importa o módulo axios para fazer requisições H
 const API_URL = import.meta.env.REACT_APP_API_URL; 
 
 // Função para registrar um novo usuário
-export const register = async (name, email, password) => {
+export const register = async (nome, email, senha) => {
   try {
     // Faz uma requisição POST para a rota /register com os dados do usuário
-    const response = await axios.post(`${API_URL}/register`, { name, email, password });
+    const response = await axios.post(`${API_URL}/register`, { nome, email, senha });
     return response.data; // Retorna os dados da resposta
   } catch (error) {
     throw error.response.data; // Lança um erro com os dados da resposta de erro
@@ -15,10 +15,10 @@ export const register = async (name, email, password) => {
 };
 
 // Função para fazer login de um usuário
-export const login = async (email, password) => {
+export const login = async (email, senha) => {
   try {
     // Faz uma requisição POST para a rota /login com os dados do usuário
-    const response = await axios.post(`${API_URL}/login`, { email, password });
+    const response = await axios.post(`${API_URL}/login`, { email, senha });
     return response.data; // Retorna os dados da resposta
   } catch (error) {
     throw error.response.data; // Lança um erro com os dados da resposta de erro
