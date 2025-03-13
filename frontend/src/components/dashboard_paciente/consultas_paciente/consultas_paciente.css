@@ -1,0 +1,92 @@
+.conteiner_consultas_paciente {
+    display: flex;
+    margin-top: 8rem;
+}
+
+
+.conteiner_informacoes_paciente {
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0px -2px 10px 0.1px #000000;
+    width: 90rem;
+    border-radius: 2rem 2rem 0 0;
+    display: flex;
+    margin-right: 45px;
+
+}
+
+.box_informacoes_paciente {
+    width: 26rem;
+    height: 12rem;
+    background-color: #0CAD9A;
+    border-radius: 20px;
+    box-shadow: 0px 2px 10px 0.1px #000000;
+    color: #ffff;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 1.6rem;
+    margin-top: 4rem;
+}
+
+#numero_maior_paciente {
+    font-size: 2.8rem;
+}
+
+#titulo_informacoes_paciente {
+    
+    margin-top: 2rem;
+}
+
+.quadros_paciente {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.conteiner_grafico_paciente1 {
+    background-color: #003336;
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4.5rem;
+    height: 3rem;
+    margin: 3rem 1.6rem;
+    border-radius: 7px;
+    padding: 2rem;
+    
+    
+}
+
+.conteiner_grafico_paciente2 {
+    background-color: #003336;
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4.5rem;
+    height: 3rem;
+    margin: 1rem 1.6rem;
+    border-radius: 7px;
+    padding: 2rem;
+    
+    
+}
+
+.conteiner_grafico_paciente3 {
+    background-color: #003336;
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4.5rem;
+    height: 3rem;
+    margin: 3rem 1.6rem;
+    border-radius: 7px;
+    padding: 2rem;
+    
+}
+

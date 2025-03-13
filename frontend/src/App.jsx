@@ -8,6 +8,7 @@ import Cadastro_Medico from "./pages/Cadastro_Medico";
 import Dashboard from "./pages/Dashboard";
 import Contato from "./pages/Contato";
 import Teste from "./pages/teste";
+import Teste_paciente from "./pages/teste_paciente";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" Component={NotFound} />
           <Route path="/teste" Component={Teste} />
+          <Route path="/teste paciente" Component={Teste_paciente} />
           
         </Routes>
       </Router>

@@ -1,0 +1,19 @@
+.menu_conteiner_paciente {
+    display: flex;
+    background-color: var(--color_primary);
+    height: 100vh;
+    background: linear-gradient(to right, #02494d, #003336);
+    color: #fff;
+    height: 100vh;
+    width: 20%;
+}
+
+.titulo_menu_paciente {
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+    margin-top: 38%;
+    margin-left: 4rem;
+    font-size: 1.3rem;
+}
+
