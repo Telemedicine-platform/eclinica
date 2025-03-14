@@ -1,0 +1,81 @@
+.container_card_fail {
+    width: 25%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.357);
+    animation: teste;
+}
+
+@keyframes teste {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.box_error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 65%;
+    padding: 2%;
+    background-color: #00000021;
+    border-radius: 1rem;
+}
+
+.icon_error {
+    width: 100%;
+    height: 100%;
+}
+
+.box_text_error {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    padding: 4%;
+    gap: 0.5rem;
+}
+
+.text_error {
+    font-size: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.subtext_error {
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.box_exit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 65%;
+    padding: 2%;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.icon_exit {
+    width: 100%;
+    height: 100%;
+}
