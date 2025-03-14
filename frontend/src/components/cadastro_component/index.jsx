@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PreviewIcon from "../../assets/preview.svg";
 import NoPreviewIcon from "../../assets/noPreview.svg";
 import "./cadastro_medico.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Card from "../cards//index";
 
 const states = [
   { value: "AC", label: "Acre (AC)" },
@@ -50,13 +51,16 @@ const especialidades = [
   { value: 12, label: "Telereabilitação" },
   { value: 13, label: "Teleodontologia" },
   { value: 14, label: "Telegeriatria" },
-  { value: 15, label: "Teleinfectologia" }
+  { value: 15, label: "Teleinfectologia" },
 ];
 
 export default function Cadastro_medico_component() {
   const [showPasswordCadastro, setShowPasswordCadastro] = useState(false);
   const [selectedState, setSelectedState] = useState("Selecione um estado");
-  const [selectedEspecialidade, setSelectedEspecialidade] = useState({ value: "", label: "Selecione uma especialidade" });
+  const [selectedEspecialidade, setSelectedEspecialidade] = useState({
+    value: "",
+    label: "Selecione uma especialidade",
+  });
   const [statesIsOpen, statesSetIsOpen] = useState(false);
   const [especialidadesIsOpen, especialidadesSetIsOpen] = useState(false);
   const [nome, setNome] = useState("");
@@ -66,7 +70,9 @@ export default function Cadastro_medico_component() {
   const [senha, setSenha] = useState("");
   const [confirmSenha, setConfirmSenha] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isCardVisible, setIsCardVisible] = useState(false);
   const navigate = useNavigate();
 
   const handleSelect = (state) => {
@@ -84,14 +90,17 @@ export default function Cadastro_medico_component() {
 
     if (senha.length < 6) {
       setErrorMessage("Senha deve ter no mínimo 6 caracteres");
+      setIsCardVisible(true);
       return;
     }
     if (senha !== confirmSenha) {
       setErrorMessage("As senhas não coincidem");
+      setIsCardVisible(true);
       return;
     }
     if (!selectedEspecialidade.value) {
       setErrorMessage("Por favor, selecione uma especialidade");
+      setIsCardVisible(true);
       return;
     }
 
@@ -106,21 +115,53 @@ export default function Cadastro_medico_component() {
         especialidadeId: selectedEspecialidade.value, // Enviar o ID da especialidade
         senha,
       });
-      alert("Conta criada com sucesso");
-      navigate("/login");
+      setSuccessMessage("Conta criada com sucesso");
+      setIsCardVisible(true);
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
     } catch (err) {
       setErrorMessage("Erro ao criar conta");
+      setIsCardVisible(true);
     } finally {
       setLoading(false);
     }
   };
 
+  useEffect(() => {
+    if (errorMessage || successMessage) {
+      setIsCardVisible(true);
+      const timer = setTimeout(() => {
+        setErrorMessage("");
+        setSuccessMessage("");
+        setIsCardVisible(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage, successMessage]);
+
   return (
     <div className="container_cadastro_medico">
+      {isCardVisible && errorMessage && (
+        <Card
+          type="error"
+          message={errorMessage}
+          subMessage="Tente novamente"
+        />
+      )}
+      {isCardVisible && successMessage && (
+        <Card
+          type="success"
+          message={successMessage}
+          subMessage="Você será redirecionado"
+        />
+      )}
       <div className="box_cadastro_medico">
         <div className="form_container_cadastro_medico">
           <form className="form_cadastro_medico" onSubmit={handleRegister}>
-            <h1 className="title_cadastro_medico">Formulário de Cadastro Médico</h1>
+            <h1 className="title_cadastro_medico">
+              Formulário de Cadastro Médico
+            </h1>
             <input
               type="text"
               placeholder="Nome Completo"
@@ -176,11 +217,15 @@ export default function Cadastro_medico_component() {
             </div>
 
             <div
-              className={`select_container ${especialidadesIsOpen ? "open" : ""}`}
+              className={`select_container ${
+                especialidadesIsOpen ? "open" : ""
+              }`}
               onClick={() => especialidadesSetIsOpen(!especialidadesIsOpen)}
             >
               <div className="dropdown_select">
-                <div className="dropdown_button_especialidade">{selectedEspecialidade.label}</div>
+                <div className="dropdown_button_especialidade">
+                  {selectedEspecialidade.label}
+                </div>
                 {especialidadesIsOpen && (
                   <ul className="dropdown_list">
                     {especialidades.map((especialidade) => (
@@ -238,17 +283,18 @@ export default function Cadastro_medico_component() {
               </button>
             </div>
 
-            {errorMessage && <p className="error_message">{errorMessage}</p>}
-
             <Link to="/login" className="link_login_cadastro">
               Já tem conta?
             </Link>
 
-            <button type="submit" className="button_login_cadastro" disabled={loading}>
+            <button
+              type="submit"
+              className="button_login_cadastro"
+              disabled={loading}
+            >
               {loading ? "Carregando..." : "Criar conta"}
             </button>
           </form>
-
         </div>
         <div className="toggle_container_cadastro">
           <div className="toggle_cadastro">
@@ -263,11 +309,19 @@ export default function Cadastro_medico_component() {
                   e de contato. Essas informações são essenciais para que
                   possamos garantir um atendimento médico de qualidade e seguro.
                 </p>
-                <p className="text_toggle_cadastro">Passos para completar seu cadastro:</p>
+                <p className="text_toggle_cadastro">
+                  Passos para completar seu cadastro:
+                </p>
                 <ol className="list_toggle_cadastro">
-                  <li className="li_toggle_cadastro">Insira seus dados pessoais e profissionais.</li>
-                  <li className="li_toggle_cadastro">Adicione suas credenciais e informações de contato.</li>
-                  <li className="li_toggle_cadastro">Confirme e revise os dados antes de finalizar.</li>
+                  <li className="li_toggle_cadastro">
+                    Insira seus dados pessoais e profissionais.
+                  </li>
+                  <li className="li_toggle_cadastro">
+                    Adicione suas credenciais e informações de contato.
+                  </li>
+                  <li className="li_toggle_cadastro">
+                    Confirme e revise os dados antes de finalizar.
+                  </li>
                 </ol>
                 <p className="text_toggle_cadastro">
                   Após completar o cadastro, você poderá agendar consultas e

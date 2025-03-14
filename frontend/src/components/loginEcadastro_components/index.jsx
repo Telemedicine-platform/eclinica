@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./loginEcadastro.css";
 import PreviewIcon from "../../assets/preview.svg";
 import NoPreviewIcon from "../../assets/noPreview.svg";
 import axios from "axios";
+import Card from "../cards//index";
 
 export default function LoginECadastro() {
   const [isActive, setIsActive] = useState(false);
@@ -18,6 +19,8 @@ export default function LoginECadastro() {
   const [loginSenha, setLoginSenha] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isCardVisible, setIsCardVisible] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
   const toggleForm = (status) => {
     setIsActive(status);
@@ -34,10 +37,12 @@ export default function LoginECadastro() {
     e.preventDefault();
     if (senha.length < 6) {
       setErrorMessage("Senha deve ter no mínimo 6 caracteres");
+      setIsCardVisible(true);
       return;
     }
     if (senha !== confirmSenha) {
       setErrorMessage("As senhas não coincidem");
+      setIsCardVisible(true);
       return;
     }
     setLoading(true);
@@ -47,14 +52,30 @@ export default function LoginECadastro() {
         email: email,
         senha: senha,
       });
-      alert("Conta criada com sucesso");
-      toggleForm(false);
+      setSuccessMessage("Conta criada com sucesso");
+      setIsCardVisible(true);
+      setTimeout(() => {
+        toggleForm(false);
+      }, 3000);
     } catch (err) {
-      alert("Erro ao criar conta");
+      setErrorMessage("Erro ao criar conta");
+      setIsCardVisible(true);
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (errorMessage || successMessage) {
+      setIsCardVisible(true);
+      const timer = setTimeout(() => {
+        setErrorMessage("");
+        setSuccessMessage("");
+        setIsCardVisible(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage, successMessage]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -68,10 +89,14 @@ export default function LoginECadastro() {
         }
       );
       localStorage.setItem("token", response.data.token);
-      alert("Login realizado com sucesso!");
-      window.location.href = "/dashboard";
+      setSuccessMessage("Login realizado com sucesso!");
+      setIsCardVisible(true);
+      setTimeout(() => {
+        window.location.href = "/dashboard";
+      }, 3000);
     } catch (err) {
-      alert("Erro ao fazer login. Verifique seus dados.");
+      setErrorMessage("Erro ao fazer login. Verifique seus dados.");
+      setIsCardVisible(true);
     } finally {
       setLoading(false);
     }
@@ -79,6 +104,20 @@ export default function LoginECadastro() {
 
   return (
     <div className="container_login_cadastro">
+      {isCardVisible && errorMessage && (
+        <Card
+          type="error"
+          message={errorMessage}
+          subMessage="Tente novamente"
+        />
+      )}
+      {isCardVisible && successMessage && (
+        <Card
+          type="success"
+          message={successMessage}
+          subMessage="Você será redirecionado"
+        />
+      )}
       <div className={`container ${isActive ? "active" : ""}`} id="container">
         <div className="form-container sign-up">
           <form className="form_login_cadastro" onSubmit={handleRegister}>
@@ -137,7 +176,6 @@ export default function LoginECadastro() {
                 />
               </button>
             </div>
-            {errorMessage && <p className="error_message">{errorMessage}</p>}
             <a
               onClick={() => toggleForm(false)}
               className="link_login_cadastro"
