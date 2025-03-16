@@ -1,23 +1,30 @@
-const User = require('../models/User'); // Importa o modelo de usuário
+// Importa o modelo de usuário
+const User = require('../models/User');
 
 const userController = {
   // Função para obter o perfil do usuário
   getUserProfile: (req, res) => {
-    const userId = req.user.userId; // Obtém o ID do usuário da requisição
+    // Obtém o ID do usuário da requisição (assumindo que o middleware de autenticação adiciona o usuário à requisição)
+    const userId = req.user.userId;
 
+    // Chama a função findUserById do modelo User para buscar o perfil do usuário pelo ID
     User.findUserById(userId, (err, userProfile) => {
       if (err) {
+        // Se houver um erro ao buscar o perfil do usuário, loga o erro e retorna uma resposta de erro
         console.error('Erro ao buscar perfil do usuário:', err);
-        return res.status(500).json({ message: 'Erro ao buscar perfil do usuário' }); // Retorna erro se houver
+        return res.status(500).json({ message: 'Erro ao buscar perfil do usuário' });
       }
 
       if (!userProfile) {
-        return res.status(404).json({ message: 'Usuário não encontrado' }); // Retorna erro se o usuário não for encontrado
+        // Se o perfil do usuário não for encontrado, retorna uma resposta de erro
+        return res.status(404).json({ message: 'Usuário não encontrado' });
       }
 
-      res.json(userProfile); // Retorna o perfil do usuário
+      // Se o perfil do usuário for encontrado, retorna o perfil do usuário
+      res.json(userProfile);
     });
   }
 };
 
-module.exports = userController; // Exporta o controlador de usuário
+// Exporta o controlador de usuário
+module.exports = userController;
