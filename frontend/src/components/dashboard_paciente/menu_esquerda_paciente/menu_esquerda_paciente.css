@@ -1,19 +1,36 @@
 .menu_conteiner_paciente {
     display: flex;
-    background-color: var(--color_primary);
-    height: 100vh;
-    background: linear-gradient(to right, #02494d, #003336);
     color: #fff;
     height: 100vh;
     width: 20%;
 }
 
-.titulo_menu_paciente {
+.box_menu_paciente {
     display: flex;
     flex-direction: column;
-    gap: 4.5rem;
     margin-top: 38%;
-    margin-left: 4rem;
     font-size: 1.3rem;
+    gap: 1rem;
+    margin-left: 2rem;
 }
 
+.titulo_menu_paciente {
+    display: flex;
+    padding: 1rem 2rem;
+}
+
+.button_menu_paciente {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    font-weight: 500;
+}
+
+.button_menu_paciente:hover {
+    background-color: #035559;
+    border-radius: 0.5rem;
+}

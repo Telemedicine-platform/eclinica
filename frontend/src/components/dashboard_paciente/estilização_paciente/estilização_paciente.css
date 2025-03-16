@@ -1,5 +1,5 @@
 .estilo_conteiner_paciente {
     display: flex;
-    background-color: #003336;
-
+    background-color: var(--color_primary);
+    background: linear-gradient(to right, #02494d, #003336);
 }

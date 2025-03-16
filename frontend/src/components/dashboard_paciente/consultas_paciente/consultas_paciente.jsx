@@ -2,66 +2,56 @@ import React from "react";
 import "./consultas_paciente.css";
 
 function Consultas_paciente() {
-    return (
-        <div className="conteiner_consultas_paciente">
-            <div className="conteiner_informacoes_paciente"> 
-                
-                <div className="quadros_paciente"> 
+  const consultas = [
+    // Dados de exemplo das consultas do paciente
+    // Apenas um teste de tabela, os dados devem vir do banco de dados
+    {
+      id: 1,
+      data: "2025-03-16",
+      horario: "14:30",
+      medico: "Dr. Juarez",
+      especialidade: "Cardiologista",
+    },
+    {
+      id: 2,
+      data: "2025-03-17",
+      horario: "10:00",
+      medico: "Dra. Maria",
+      especialidade: "Dermatologista",
+    },
+  ];
 
-                    <div className="box_informacoes_paciente">
-                        <h3 id="titulo_informacoes_paciente">
-                        Nº de Consultas semanais
-                        </h3>
-                        <h3 id="numero_maior_paciente">
-                            5
-                        </h3>
-                    </div>
+  return (
+    <div className="conteiner_consultas_paciente">
+      <div className="conteiner_informacoes_paciente">
 
-                    
-                </div>
-
-                <div className="conteiner_grafico_paciente1">
-                   
-                    <h2>
-                    Consulta marcada para: 14:30h
-                    </h2>
-                    <h2>
-                    Com medico Juarez
-                    </h2>
-                    <h2>
-                    cardiologista
-                    </h2>
-                    
-                    
-                </div>
-
-                <div className="conteiner_grafico_paciente2">
-                <h2>
-                    Consulta marcada para: 14:30h
-                    </h2>
-                    <h2>
-                    Com medico Juarez
-                    </h2>
-                    <h2>
-                    cardiologista
-                    </h2>
-                </div>
-
-                <div className="conteiner_grafico_paciente3">
-                <h2>
-                    Consulta marcada para: 14:30h
-                    </h2>
-                    <h2>
-                    Com medico Juarez
-                    </h2>
-                    <h2>
-                    cardiologista
-                    </h2>
-                </div>
-
-            </div>  
+        <div className="conteiner_grafico_paciente">
+          <table className="tabela_consultas_paciente">
+            <thead className="cabecalho_tabela_paciente">
+              <tr className="linha_cabecalho_paciente">
+                <th className="coluna_cabecalho_paciente">#</th>
+                <th className="coluna_cabecalho_paciente">Data</th>
+                <th className="coluna_cabecalho_paciente">Horário</th>
+                <th className="coluna_cabecalho_paciente">Médico</th>
+                <th className="coluna_cabecalho_paciente">Especialidade</th>
+              </tr>
+            </thead>
+            <tbody className="corpo_tabela_paciente">
+              {consultas.map((consulta) => (
+                <tr key={consulta.id} className="linha_tabela_paciente">
+                  <td className="coluna_tabela_paciente">{consulta.id}</td>
+                  <td className="coluna_tabela_paciente">{consulta.data}</td>
+                  <td className="coluna_tabela_paciente">{consulta.horario}</td>
+                  <td className="coluna_tabela_paciente">{consulta.medico}</td>
+                  <td className="coluna_tabela_paciente">{consulta.especialidade}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Consultas_paciente;

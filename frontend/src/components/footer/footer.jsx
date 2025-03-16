@@ -2,8 +2,11 @@ import React from "react";
 import "./footer.css";
 import Uninassau from "../../assets/footer_logos.svg";
 import { Link } from "react-router-dom";
+import { isAuthenticated } from "../../services/authService";
 
 function Footer() {
+  const isAuth = isAuthenticated();
+
   return (
     <footer className="conteiner_footer">
       <div className="box_footer">
@@ -15,11 +18,20 @@ function Footer() {
                 Home
               </Link>
             </li>
-            <li className="li_footer">
-              <Link to="/cadastroMedico" className="link_footer">
-                Cadastro Médico
-              </Link>
-            </li>
+            {!isAuth && (
+              <li className="li_footer">
+                <Link to="/cadastroMedico" className="link_footer">
+                  Cadastro Médico
+                </Link>
+              </li>
+            )}
+            {isAuth && (
+              <li className="li_footer">
+                <Link to="/dashboard" className="link_footer">
+                  Consultas
+                </Link>
+              </li>
+            )}
             <li className="li_footer">
               <Link to={"/sobre"} className="link_footer">
                 Sobre

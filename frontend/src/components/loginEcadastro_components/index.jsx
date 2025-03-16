@@ -4,9 +4,9 @@ import "./loginEcadastro.css";
 import PreviewIcon from "../../assets/preview.svg";
 import NoPreviewIcon from "../../assets/noPreview.svg";
 import axios from "axios";
-import Card from "../cards//index";
+import Card from "../cards/index";
 
-export default function LoginECadastro() {
+export default function LoginECadastro({ onLoginSuccess }) {
   const [isActive, setIsActive] = useState(false);
   const [showPasswordCadastro, setShowPasswordCadastro] = useState(false);
   const [showPasswordLogin, setShowPasswordLogin] = useState(false);
@@ -89,10 +89,11 @@ export default function LoginECadastro() {
         }
       );
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userType", response.data.tipo); // Armazena o tipo de usuário
       setSuccessMessage("Login realizado com sucesso!");
       setIsCardVisible(true);
       setTimeout(() => {
-        window.location.href = "/dashboard";
+        onLoginSuccess();
       }, 3000);
     } catch (err) {
       setErrorMessage("Erro ao fazer login. Verifique seus dados.");

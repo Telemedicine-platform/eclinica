@@ -2,6 +2,7 @@ import "./header_login.css";
 import Logo from "../../assets/eClinica.svg";
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { logout } from "../../services/authService";
 
 const Header_login = () => {
   const [hasShadow, setHasShadow] = useState(false);
@@ -35,7 +36,6 @@ const Header_login = () => {
               Home
             </Link>
           </li>
-          
           <li className="li_navebar">
             <Link to="/Sobre" className="link_navebar">
               Sobre
@@ -47,10 +47,13 @@ const Header_login = () => {
             </a>
           </li>
         </ul>
-        <button className="botao_login_dash">
-          <Link to="/login" className="link_botao">
+        <button className="botao_dash">
+          <Link to="/dashboard" className="link_botao">
             Consultas
           </Link>
+        </button>
+        <button className="botao_dash" onClick={logout}>
+          Sair
         </button>
       </nav>
     </header>
