@@ -10,6 +10,8 @@ import Dashboard_Paciente from "./pages/Dashboard_Paciente";
 import { isAuthenticated } from "./services/authService";
 import Header from "./components/header/header";
 import Header_login from "./components/header/header_login";
+import PixPagamento from "./pages/tela_pix";
+
 
 function App() {
   const isAuth = isAuthenticated();
@@ -26,7 +28,8 @@ function App() {
           <Route path="/recuperarSenha" Component={Redefinir_senha} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard-paciente" element={<Dashboard_Paciente />} />
-          <Route path="*" Component={NotFound} />        
+          <Route path="*" Component={NotFound} />
+          <Route exact path="/tela_pix" Component={PixPagamento} />    
         </Routes>
       </Router>
     </>
