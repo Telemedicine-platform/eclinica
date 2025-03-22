@@ -10,4 +10,10 @@ router.post("/register", validateRegister, authController.registerUser);
 // Define a rota para fazer login de um usuário com validação
 router.post("/login", validateLogin, authController.loginUser);
 
+// Define a rota para atualizar um usuário (paciente ou médico)
+router.put("/update", authController.updateUser);
+
+// Define a rota para deletar um usuário (paciente ou médico)
+router.delete("/delete", authController.deleteUser);
+
 module.exports = router;

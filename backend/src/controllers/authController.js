@@ -93,9 +93,9 @@ const authController = {
     });
   },
 
-  // Função para atualizar um usuário
+  // Função para atualizar um usuário (paciente ou médico)
   updateUser: (req, res) => {
-    const { id, nome, email, senha } = req.body;
+    const { id, nome, email, telefone, crm, estado, especialidadeId, senha, tipo } = req.body;
 
     bcrypt.hash(senha, 10, (err, hash) => {
       if (err) {
@@ -103,64 +103,53 @@ const authController = {
         return res.status(500).json({ message: 'Erro ao criptografar a senha' });
       }
 
-      User.updateUser(id, nome, email, hash, (err, results) => {
-        if (err) {
-          console.error('Erro ao atualizar usuário:', err);
-          return res.status(500).json({ message: 'Erro ao atualizar usuário' });
-        }
-        res.status(200).json({ message: 'Usuário atualizado com sucesso!' });
-      });
+      if (tipo === 'medico') {
+        // Atualiza um médico
+        User.updateDoctor(id, nome, email, telefone, crm, estado, especialidadeId, hash, (err, results) => {
+          if (err) {
+            console.error('Erro ao atualizar médico:', err);
+            return res.status(500).json({ message: 'Erro ao atualizar médico' });
+          }
+          res.status(200).json({ message: 'Médico atualizado com sucesso!' });
+        });
+      } else {
+        // Atualiza um paciente
+        User.updateUser(id, nome, email, hash, (err, results) => {
+          if (err) {
+            console.error('Erro ao atualizar paciente:', err);
+            return res.status(500).json({ message: 'Erro ao atualizar paciente' });
+          }
+          res.status(200).json({ message: 'Paciente atualizado com sucesso!' });
+        });
+      }
     });
   },
 
-  // Função para deletar um usuário
+  // Função para deletar um usuário (paciente ou médico)
   deleteUser: (req, res) => {
-    const { id } = req.body;
+    const { crm, id, tipo } = req.body;
 
-    User.deleteUser(id, (err, results) => {
-      if (err) {
-        console.error('Erro ao deletar usuário:', err);
-        return res.status(500).json({ message: 'Erro ao deletar usuário' });
-      }
-      res.status(200).json({ message: 'Usuário deletado com sucesso!' });
-    });
-  },
-
-  // Função para atualizar um médico
-  updateDoctor: (req, res) => {
-    const { nome, email, telefone, crm, estado, especialidadeId, senha } = req.body;
-
-    bcrypt.hash(senha, 10, (err, hash) => {
-      if (err) {
-        console.error('Erro ao criptografar a senha:', err);
-        return res.status(500).json({ message: 'Erro ao criptografar a senha' });
-      }
-
-      User.updateDoctor(nome, email, telefone, crm, estado, especialidadeId, hash, (err, results) => {
+    if (tipo === 'medico') {
+      // Deleta um médico
+      User.deleteDoctor(crm, (err, results) => {
         if (err) {
-          console.error('Erro ao atualizar médico:', err);
-          return res.status(500).json({ message: 'Erro ao atualizar médico' });
+          console.error('Erro ao deletar médico:', err);
+          return res.status(500).json({ message: 'Erro ao deletar médico' });
         }
-        res.status(200).json({ message: 'Médico atualizado com sucesso!' });
+        res.status(200).json({ message: 'Médico deletado com sucesso!' });
       });
-    });
-  },
-
-  // Função para deletar um médico
-  deleteDoctor: (req, res) => {
-    const { crm } = req.body;
-
-    User.deleteDoctor(crm, (err, results) => {
-      if (err) {
-        console.error('Erro ao deletar médico:', err);
-        return res.status(500).json({ message: 'Erro ao deletar médico' });
-      }
-      res.status(200).json({ message: 'Médico deletado com sucesso!' });
-    });
-  },
+    } else {
+      // Deleta um paciente
+      User.deleteUser(id, (err, results) => {
+        if (err) {
+          console.error('Erro ao deletar paciente:', err);
+          return res.status(500).json({ message: 'Erro ao deletar paciente' });
+        }
+        res.status(200).json({ message: 'Paciente deletado com sucesso!' });
+      });
+    }
+  }
 };
-
-
 
 // Exporta o controlador de autenticação
 module.exports = authController;

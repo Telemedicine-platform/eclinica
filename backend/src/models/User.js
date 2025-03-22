@@ -27,13 +27,13 @@ const createDoctor = (nome, email, telefone, crm, estado, especialidadeId, senha
 };
 
 // Função para Atualizar um médico
-const updateDoctor = (nome, email, telefone, crm, estado, especialidadeId, senha, callback) => {
+const updateDoctor = (id, nome, email, telefone, crm, estado, especialidadeId, senha, callback) => {
   const query = `
     UPDATE medicos 
     SET nome_completo = ?, email = ?, telefone = ?, crm_numero = ?, crm_estado = ?, especialidade_id = ?, senha = ?
-    WHERE crm_numero = ?
+    WHERE id = ?
   `;
-  connection.query(query, [nome, email, telefone, crm, estado, especialidadeId, senha, crm], callback);
+  connection.query(query, [nome, email, telefone, crm, estado, especialidadeId, senha, id], callback);
 };
 
 // Função para Deletar um médico
