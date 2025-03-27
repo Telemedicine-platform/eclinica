@@ -11,7 +11,7 @@ const authenticateToken = (req, res, next) => {
 
   jwt.verify(token, JWT_SECRET, (err, user) => { // Verifica o token
     if (err) {
-      return res.status(403).json({ message: 'Token inválido.' }); // Retorna erro se o token for inválido
+      return res.status(403).json({ message: 'Token inválido ou expirado.' }); // Retorna erro se o token for inválido ou expirado
     }
     req.user = user; // Define o usuário na requisição
     next(); // Chama o próximo middleware

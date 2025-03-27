@@ -23,6 +23,24 @@ const userController = {
       // Se o perfil do usuário for encontrado, retorna o perfil do usuário
       res.json(userProfile);
     });
+  },
+  getAllDoctors: (req, res) => {
+    User.findAllDoctors((err, doctors) => {
+      if (err) {
+        console.error('Erro ao buscar médicos:', err);
+        return res.status(500).json({ message: 'Erro ao buscar médicos' });
+      }
+      res.json(doctors);
+    });
+  },
+  getAllEspecialidades: (req, res) => {
+    User.findAllEspecialidades((err, especialidades) => {
+      if (err) {
+        console.error('Erro ao buscar especialidades:', err);
+        return res.status(500).json({ message: 'Erro ao buscar especialidades' });
+      }
+      res.json(especialidades);
+    });
   }
 };
 
