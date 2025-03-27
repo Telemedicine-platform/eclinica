@@ -1,0 +1,87 @@
+.conteiner_pagamento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    width: 100%;
+    height: 60vh;
+}
+
+.box_pix {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5rem;
+}
+
+.box_qrcode {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5rem;
+    width: 35rem;
+}
+
+.text_qrcode {
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 20rem;
+    margin-left: 1rem;
+}
+
+.box_amount {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 35rem;
+    margin-top: 2rem;
+}
+
+.input_pix {
+    width: 20rem;
+    height: 3rem;
+    border: none;
+    overflow: visible;
+    resize: none;
+}
+
+.box_pix_code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.botao_pix {
+    width: 10rem;
+    height: 3rem;
+    color: #003336;
+    border: 1px solid #003336;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+}
+
+.botao_confirmar {
+    width: 10rem;
+    height: 3rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;    
+    font-weight: bold;
+    border-radius: 0.5rem;
+}
+
+.box_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 35rem;
+    margin-top: 2rem;
+}

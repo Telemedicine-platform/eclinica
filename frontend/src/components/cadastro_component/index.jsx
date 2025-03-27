@@ -4,7 +4,7 @@ import NoPreviewIcon from "../../assets/noPreview.svg";
 import "./cadastro_medico.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Card from "../cards//index";
+import Card from "../cards/index";
 
 const states = [
   { value: "AC", label: "Acre (AC)" },

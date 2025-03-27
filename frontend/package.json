@@ -13,6 +13,7 @@
     "axios": "^1.8.2",
     "dotenv": "^16.4.7",
     "npx": "file:",
+    "qrcode.react": "^4.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^6.30.0"
