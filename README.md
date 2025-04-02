@@ -159,4 +159,4 @@ O backend é construído com Node.js e Express, utilizando MySQL para armazename
 
 Acesse a aplicação em `http://localhost:3000`.
 
-### Projeto feito em grupo para a matéria database application, ciência da computação 3º semestre de 2025, Uninassau, Aracaju-SE
+### Projeto feito em grupo para a matéria database application, ciência da computação 3º semestre, Uninassau, Aracaju-SE - 2025
