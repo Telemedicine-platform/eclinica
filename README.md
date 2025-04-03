@@ -95,6 +95,10 @@ O backend é construído com Node.js e Express, utilizando MySQL para armazename
 - Node.js
 - MySQL
 
+### Link do Download do banco de dados usado no projeto
+
+<a href="https://drive.google.com/drive/folders/1AsQ0aHEkJWeEgWs7nzLayzs9wZnd9qhH?usp=sharing">Banco de dados eClínica</a>
+
 ### Instalação
 
 1. Clone o repositório:
